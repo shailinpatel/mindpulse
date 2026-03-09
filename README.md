@@ -4,7 +4,22 @@ A remote therapeutic monitoring (RTM) dashboard for clinicians to monitor patien
 
 > **Status:** Prototype with synthetic data. No backend integration — all patient data is algorithmically generated for demonstration purposes.
 
-<!-- Add a screenshot: ![MindPulse Dashboard](./screenshot.png) -->
+## Screenshots
+
+### Patient Dashboard
+![Patient Dashboard](./screenshots/dashboard.jpeg)
+
+### Patient Overview — Assessments, Mood & Medication
+![Patient Overview](./screenshots/patient-overview.jpeg)
+
+### Passive Behavioral Data
+![Passive Data](./screenshots/passive-data.jpeg)
+
+### Clinician Notes & Patient Journal
+![Notes & Journal](./screenshots/notes-journal.jpeg)
+
+### Event Timeline
+![Timeline](./screenshots/timeline.jpeg)
 
 ## Features
 
