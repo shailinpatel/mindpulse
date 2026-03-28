@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import { Sidebar } from "@/components/layout/sidebar";
+import { BottomNav } from "@/components/layout/bottom-nav";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
   description: "Clinician dashboard for remotely monitoring patients with depression and anxiety between clinic visits.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#1a1a2e",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,9 +37,10 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans antialiased">
         <TooltipProvider>
           <Sidebar />
-          <main className="min-h-screen lg:ml-60">
+          <main className="min-h-screen pb-16 lg:ml-60 lg:pb-0">
             {children}
           </main>
+          <BottomNav />
         </TooltipProvider>
       </body>
     </html>

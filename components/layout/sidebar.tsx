@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -11,11 +10,8 @@ import {
   Settings,
   Activity,
   Lock,
-  Menu,
-  X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard },
@@ -27,12 +23,11 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const sidebarContent = (
-    <>
+  return (
+    <aside className="fixed inset-y-0 left-0 z-50 hidden w-60 flex-col border-r border-sidebar-border bg-sidebar lg:flex">
       {/* Logo */}
-      <div className="flex h-16 items-center justify-between border-b border-sidebar-border px-5">
+      <div className="flex h-16 items-center border-b border-sidebar-border px-5">
         <div className="flex items-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
             <Activity className="h-4.5 w-4.5 text-primary-foreground" />
@@ -46,15 +41,6 @@ export function Sidebar() {
             </span>
           </div>
         </div>
-        {/* Mobile close button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 lg:hidden"
-          onClick={() => setMobileOpen(false)}
-        >
-          <X className="h-4 w-4" />
-        </Button>
       </div>
 
       {/* Navigation */}
@@ -82,8 +68,6 @@ export function Sidebar() {
               onClick={(e) => {
                 if (item.comingSoon) {
                   e.preventDefault();
-                } else {
-                  setMobileOpen(false);
                 }
               }}
             >
@@ -116,38 +100,6 @@ export function Sidebar() {
           </div>
         </div>
       </div>
-    </>
-  );
-
-  return (
-    <>
-      {/* Mobile menu button */}
-      <Button
-        variant="ghost"
-        size="icon"
-        className="fixed left-4 top-4 z-40 h-9 w-9 lg:hidden"
-        onClick={() => setMobileOpen(true)}
-      >
-        <Menu className="h-5 w-5" />
-      </Button>
-
-      {/* Mobile overlay */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
-          onClick={() => setMobileOpen(false)}
-        />
-      )}
-
-      {/* Sidebar — hidden on mobile, fixed on desktop */}
-      <aside
-        className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-60 flex-col border-r border-sidebar-border bg-sidebar transition-transform duration-200",
-          mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        )}
-      >
-        {sidebarContent}
-      </aside>
-    </>
+    </aside>
   );
 }

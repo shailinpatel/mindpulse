@@ -15,10 +15,10 @@ export function PatientHeader({ patient }: PatientHeaderProps) {
     : patient.condition.charAt(0).toUpperCase() + patient.condition.slice(1);
 
   return (
-    <div className="flex items-start gap-6">
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6">
       {/* Avatar + Info */}
-      <div className="flex flex-1 items-start gap-4">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-lg font-bold text-secondary-foreground">
+      <div className="flex flex-1 items-start gap-3 sm:gap-4">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary text-base font-bold text-secondary-foreground sm:h-14 sm:w-14 sm:text-lg">
           {patient.name.split(" ").map((n) => n[0]).join("")}
         </div>
         <div className="flex-1 space-y-1">
@@ -28,7 +28,7 @@ export function PatientHeader({ patient }: PatientHeaderProps) {
             </h1>
             <RiskBadge level={patient.riskScore.level} showDot />
           </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
             <span className="flex items-center gap-1">
               <User className="h-3.5 w-3.5" />
               {patient.age}y &middot; {patient.gender.charAt(0).toUpperCase() + patient.gender.slice(1)}

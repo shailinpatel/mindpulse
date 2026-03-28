@@ -39,7 +39,7 @@ export function FilterBar({
         />
       </div>
       <Select value={riskFilter} onValueChange={onRiskFilterChange}>
-        <SelectTrigger className="h-9 w-40 bg-secondary text-sm">
+        <SelectTrigger className="h-10 w-full bg-secondary text-sm sm:h-9 sm:w-40">
           <SelectValue placeholder="Risk Level" />
         </SelectTrigger>
         <SelectContent>
@@ -51,7 +51,7 @@ export function FilterBar({
         </SelectContent>
       </Select>
       <Select value={conditionFilter} onValueChange={onConditionFilterChange}>
-        <SelectTrigger className="h-9 w-40 bg-secondary text-sm">
+        <SelectTrigger className="h-10 w-full bg-secondary text-sm sm:h-9 sm:w-40">
           <SelectValue placeholder="Condition" />
         </SelectTrigger>
         <SelectContent>

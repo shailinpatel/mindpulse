@@ -13,9 +13,9 @@ interface TopBarProps {
 
 export function TopBar({ title, subtitle, alertCount = 0 }: TopBarProps) {
   return (
-    <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 pl-14 backdrop-blur-sm lg:pl-6">
+    <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border bg-background/80 px-4 backdrop-blur-sm sm:px-6">
       <div>
-        <h1 className="text-lg font-semibold tracking-tight text-foreground">
+        <h1 className="text-base font-semibold tracking-tight text-foreground sm:text-lg">
           {title}
         </h1>
         {subtitle && (

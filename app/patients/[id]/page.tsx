@@ -50,7 +50,7 @@ export default function PatientDetailPage({
 
         {/* Tabbed content */}
         <Tabs defaultValue="overview" className="space-y-4">
-          <TabsList className="bg-secondary">
+          <TabsList className="w-full justify-start overflow-x-auto bg-secondary">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="passive">Passive Data</TabsTrigger>
             <TabsTrigger value="notes">Notes & Journal</TabsTrigger>
